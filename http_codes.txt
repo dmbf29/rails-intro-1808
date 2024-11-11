@@ -1,0 +1,15 @@
+# Success
+200 -> OK
+
+# Redirects
+301 -> permanent
+302 -> temp
+
+# User Error
+401 -> Not Authorized -> I know who you are, but you cant do that
+403 -> Not Authenticated -> I dont know who you are
+404 -> Not Found (User.find_by(username: 'alskdjalskdj'))
+422 -> Unprocessable Entity -> You tried to create something, but it went wrong.
+
+# Dev Error
+500 -> Server Error

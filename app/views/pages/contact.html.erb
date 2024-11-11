@@ -1,0 +1,31 @@
+<div class="container">
+  <h1>Contact</h1>
+  <!-- form -> action (path) and method (http verb) -->
+  <!-- input -> type (text/number/email/passowrd) and name (send with this name) -->
+  <form action="/contact" method="get">
+    <label for="name">Name</label>
+    <input type="text" name="member" value='<%= params[:member] %>'>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, "ABCDEF" %>
+    <!-- <input type="hidden" name="authenticity_token" value=<%#= form_authenticity_token %>> -->
+    <input type="submit" class="btn btn-primary">
+  </form>
+  <ul>
+    <% if @members.any? %>
+      <% @members.each do |member| %>
+        <li><%= member %></li>
+      <% end %>
+    <% else %>
+      <li>No members matches <code><%= params[:member] %></code></li>
+    <% end %>
+
+  </ul>
+  <p>
+    <!-- Text Link -->
+    <%= link_to 'Home', root_path, class: 'btn btn-primary' %>
+    <!-- Wrapped Link -->
+    <%= link_to root_path, class: 'btn btn-primary' do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </p>
+</div>
